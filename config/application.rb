@@ -6,10 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.assets.precompile += Ckeditor.assets
-config.assets.precompile += %w( ckeditor/* )
-config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-
 module Thegoat
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -25,6 +21,9 @@ module Thegoat
     # config.i18n.default_locale = 'pt-BR'
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w( ckeditor/* )
+    #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
