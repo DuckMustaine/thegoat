@@ -14,6 +14,8 @@ end
 
   get 'home/index'
 
+  get '/model/ckeditor/'
+
   root 'home#index'
 
   resources :teams
