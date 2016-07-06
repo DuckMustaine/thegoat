@@ -18,7 +18,7 @@
     <% @editors.each do |post| %>
     <div class="post_wrapper">
       <h3 class="title"><%= link_to post.title, post %></h3>
-      <p class="tags"><%= post.tags %></p>
+      <p class="tags">Tags: <%= post.tags %></p>
     </div>
     <% end %>
 <%= will_paginate @editors %>

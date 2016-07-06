@@ -24,9 +24,9 @@
         <td><%= editor.post %></td>
         <td><%= editor.tags %></td>
         <td><%= editor.user.name %></td>
-        <td><%= link_to 'Show', editor %></td>
-        <td><%= link_to 'Edit', edit_editor_path(editor) %></td>
-        <td><%= link_to 'Destroy', editor, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <td><%= link_to 'Show', editor, :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Edit', edit_editor_path(editor), :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Destroy', editor, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,7 @@
 <h2>Você não tem permissão!</h2>
 <%= link_to 'Voltar', home_index_path, :class => "btn btn-danger" %>
 <% end %>
+
+<h2>Você não tem permissão!</h2>
+<%= link_to 'Voltar', home_index_path, :class => "btn btn-danger" %>
 </div>
