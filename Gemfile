@@ -5,6 +5,7 @@ gem 'pundit'
 gem 'ckeditor'
 gem 'paperclip'
 gem 'will_paginate', '~> 3.0'
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
