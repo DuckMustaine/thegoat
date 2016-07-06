@@ -1,0 +1,43 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag     params[:controller] %>
+  <%= javascript_include_tag  'application', 'ckeditor.js'  %>
+<% end %>
+
+<% if user_signed_in? %>
+<% if policy(@editors).index? %>
+<div class="container">
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Post</th>
+      <th>Tags</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @editors.each do |editor| %>
+      <tr>
+        <td><%= editor.title %></td>
+        <td><%= editor.post %></td>
+        <td><%= editor.tags %></td>
+        <td><%= editor.user.name %></td>
+        <td><%= link_to 'Show', editor %></td>
+        <td><%= link_to 'Edit', edit_editor_path(editor) %></td>
+        <td><%= link_to 'Destroy', editor, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @editors %>
+<br><hr>
+<%= link_to 'Novo Texto', new_editor_path, :class => "btn btn-danger" %> <br>
+<% end %>
+<% else %>
+
+<h2>Você não tem permissão!</h2>
+<%= link_to 'Voltar', "http://localhost:3000/", :class => "btn btn-danger" %>
+<% end %>
+</div>

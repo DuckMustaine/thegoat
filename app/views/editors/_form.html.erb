@@ -1,0 +1,33 @@
+<%= form_for(@editor, remote:true) do |f| %>
+  <% if @editor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@editor.errors.count, "error") %> prohibited this editor from being saved:</h2>
+
+      <ul>
+      <% @editor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :post %><br>
+    <%= f.cktext_area :post %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

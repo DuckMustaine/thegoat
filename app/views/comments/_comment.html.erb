@@ -1,0 +1,15 @@
+<div class="comment clearfix">
+	<div class="comment_content">
+		<p class="comment_name"><strong><%= comment.name %></strong></p>
+		<p class="comment_body"><%= raw(comment.body) %></p>
+	</div>
+
+<% if user_signed_in? %>
+<% if policy(@editor).index? %>
+	<p><%= link_to 'Deletar', [comment.editor, comment],
+					method: :delete,
+					class: "button",
+					data: { confirm: 'Você tem certeza?' } %>
+<% end %>
+<% end %>
+</div>

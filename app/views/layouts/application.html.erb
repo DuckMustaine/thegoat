@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The GOAT</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'ckeditor.js' %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <%= yield :head %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+          
+          <ul class="topnav">
+            <li class="bodinho"> <%= link_to image_tag("http://thegoat.com.br/wp-content/uploads/2016/07/100px.png"), "http://localhost:3000/" %></li>
+            <li><%= link_to " NBA", editors_path, :class => "glyphicon glyphicon-fire" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to " Sair", destroy_user_session_path, :class => "glyphicon glyphicon-log-out", method: :delete %></li>
+            <% else %>
+              <li><%= link_to " Cadastro", new_user_registration_path, :class => "glyphicon glyphicon-user" %> </li>
+              <li><%= link_to " Entrar", user_session_path, :class => "glyphicon glyphicon-log-in" %></li>
+            <% end %>
+            <li class="icon"><a href="javascript:void(0);" style="font-size:30px;" onclick="myFunction()">☰</a></li>
+          </ul>
+
+<%= yield %>
+
+</body>
+
+<footer>
+  <hr>
+  <a href="http://www.twitter.com/TheGOATbr" target="_blank"><img src="http://findicons.com/files/icons/2052/social_network/32/twitter.png"></a>
+  <a href="https://www.facebook.com/theGOATbr/" target="_blank"><img src="http://www.woottonbassettcameraclub.org.uk/wp-content/uploads/2015/06/facebook.png"></a>
+  <br><em>&copy; Direitos reservados à Pedro Teixeira.</em>
+</footer>
+
+</html>

@@ -1,0 +1,29 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag     params[:controller] %>
+  <%= javascript_include_tag  params[:controller] %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Usuários</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>E-mail</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Home', home_index_path %>

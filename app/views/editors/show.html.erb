@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+    <style type="text/css">
+    .container {
+        margin: 20px;
+    }
+    .title {
+    	font-size: 30px;
+    }
+    .tags {
+    	font-size: 20px;
+    }
+    </style>
+
+<div class="container">
+<p class="title">
+  <strong>Título:</strong>
+  <%= @editor.title %>
+</p>
+
+<p>
+  <%= raw(@editor.post) %>
+</p>
+
+<p class="tags">
+  <strong>Tags:</strong>
+  <%= @editor.tags %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @editor.user.name %>
+</p>
+
+<br><hr>
+
+<div id="comments">
+  <h2><%= @editor.comments.count %> Comentários</h2>
+  <%= render @editor.comments %>
+  <h3>Escreva um comentário!</h3>
+  <%= render "comments/form" %>
+
+</div>
+
+</div>
+
+<%= link_to 'Editar', edit_editor_path(@editor) %> |
+<%= link_to 'Voltar', editors_path %>

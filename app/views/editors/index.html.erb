@@ -1,0 +1,27 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag     params[:controller] %>
+  <%= javascript_include_tag  'application', 'ckeditor.js'  %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+
+<h2>Busca de Textos</h2>
+
+<%= form_tag(editors_path, :method => :get) do %>
+  <%= text_field_tag 'search', nil, placeholder: 'Digite sua busca...', size: 50 %>
+  <%= submit_tag "Busque!", :class => "btn btn-danger" %>
+<% end %>
+<br><hr><br>
+
+    <h2>Posts</h2>
+    <% @editors.each do |post| %>
+    <div class="post_wrapper">
+      <h3 class="title"><%= link_to post.title, post %></h3>
+      <p class="tags"><%= post.tags %></p>
+    </div>
+    <% end %>
+<%= will_paginate @editors %>
+<br>
+<%= link_to 'Administração de Textos', info_editors_path %> <br>
+</div>

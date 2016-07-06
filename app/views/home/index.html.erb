@@ -1,0 +1,26 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag     params[:controller] %>
+  <%= javascript_include_tag  params[:controller] %>
+<% end %>
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+  <head>
+    <meta charset='utf-8'> 
+  </head>
+  <body>
+  
+ 	<% if user_signed_in? %>
+      <ul>
+        <h3>Bem vindo!</h3>
+        <li><%= current_user.email %></li>
+      </ul>
+  <% end %>
+
+  <span class="container">
+  <span class="admin"><%= link_to image_tag("http://thegoat.com.br/wp-content/uploads/2016/07/011.png"), info_editors_path %>    </span>
+  </span>
+
+  </body>
+</div>
+</html>

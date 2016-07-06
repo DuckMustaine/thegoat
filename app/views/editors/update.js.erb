@@ -1,0 +1,6 @@
+var qtdErrors = <%= @editor.errors.count %>;
+
+	if (qtdErrors > 0) {
+		$.notify("Ocorreu algum erro! Cheque se todas as informações estão preenchidas!", "error"); }
+	else {
+		$.notify("Texto editado e salvo!", "success"); }

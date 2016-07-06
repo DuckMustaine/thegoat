@@ -1,0 +1,11 @@
+<div id="container">
+<% content_for :head do %>
+  <%= javascript_include_tag  "notify" %>
+<% end %>
+
+<h1>Novo Texto</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Voltar', editors_path %>
+</div>
