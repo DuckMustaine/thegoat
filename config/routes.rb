@@ -14,7 +14,7 @@ end
 
   get 'home/index'
 
-  get '/assets/javascripts/'
+  get '/assets/ckeditor/'
 
   root 'home#index'
 
