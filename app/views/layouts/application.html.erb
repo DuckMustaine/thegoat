@@ -16,7 +16,7 @@
 <body>
           
           <ul class="topnav">
-            <li class="bodinho"> <%= link_to image_tag("http://thegoat.com.br/wp-content/uploads/2016/07/100px.png"), "http://localhost:3000/" %></li>
+            <li class="bodinho"> <%= link_to image_tag("http://thegoat.com.br/wp-content/uploads/2016/07/100px.png"), home_index_path %></li>
             <li><%= link_to " NBA", editors_path, :class => "glyphicon glyphicon-fire" %></li>
             <% if user_signed_in? %>
               <li><%= link_to " Sair", destroy_user_session_path, :class => "glyphicon glyphicon-log-out", method: :delete %></li>
